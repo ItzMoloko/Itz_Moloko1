@@ -45,6 +45,13 @@
             background-color: #333;
             color: white;
         }
+        a {
+            color: inherit; /* Убирает синий цвет */
+            text-decoration: none; /* Убирает подчеркивание */
+        }
+        a:hover {
+            text-decoration: underline; /* Добавляет подчеркивание при наведении (по желанию) */
+        }
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5em;
@@ -59,7 +66,8 @@
 
 <header>
     <h1>Добро пожаловать на мой YouTube канал!</h1>
-    <a href="https://youtube.com/@itz_molokomain?si=eBQteTiXL--j6dEM" target="_blank" style="color: white; text-decoration: none;">Перейти на мой канал</a>
+    <a href="https://youtube.com/@itz_molokomain?si=eBQteTiXL--j6dEM" target="_blank" style="color: white;">Перейти на мой канал</a>
+    <p><strong><a href="https://t.me/Itz_Moloko" target="_blank">Телеграмм Канал</a></strong></p>
 </header>
 
 <div class="container">
@@ -84,6 +92,10 @@
 <footer>
     <p>&copy; 2024 Мой YouTube Канал</p>
 </footer>
-
+<h2>Мои каналы:</h2>
+<ul>
+    <li><a href="https://youtube.com/@itz_molokomain?si=5YxQhE0kcnTSr2KP">YouTube</a></li>
+    <li><a href="https://t.me/ваш_канал">Telegram</a></li> <!-- https://t.me/Itz_Moloko -->
+</ul>
 </body>
 </html>
