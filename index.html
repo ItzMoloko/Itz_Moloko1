@@ -72,14 +72,14 @@
         }
     </style>
     <script>
-        window.onload = function() {
-            var userName = prompt("Пожалуйста, введите ваше имя:", "");
-            if (userName != null && userName != "") {
-                alert("Добро пожаловать, " + userName + "!");
-            } else {
-                alert("Добро пожаловать на сайт, гость!");
-            }
-        };
+        function copyCode() {
+            const code = "2202 2023 2564 6135"; // Код для копирования с пробелами
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Код скопирован: " + code);
+            }).catch(err => {
+                console.error("Ошибка при копировании: ", err);
+            });
+        }
     </script>
 </head>
 <body>
@@ -94,13 +94,13 @@
 <div class="container">
     <h2>Последние видео</h2>
     <div class="video">
-        <h3>[MVP+] Itz_Moloko кидайте дуэли на РуХайпикселе</h3>
-        <iframe src="https://www.youtube.com/embed/v8rgNzHoGdw?si=FJE1Ezu3V9TDFXEm" frameborder="0" allowfullscreen></iframe>
+        <h3>Нашёл Тимейта😎[MVP++ ]PLS_BRO_ALT_F4</h3>
+        <iframe src="https://www.youtube.com/embed/XTQIGdmwitc?si=Xkkif7VM7WK1vRmz" frameborder="0" allowfullscreen></iframe>
     </div>
     <h2>Лучшее видео</h2>
     <div class="video">
-        <h3>[MVP+] Itz_Moloko кидайте дуэли на РуХайпикселе</h3>
-        <iframe src="https://www.youtube.com/embed/v8rgNzHoGdw?si=FJE1Ezu3V9TDFXEm" frameborder="0" allowfullscreen></iframe>
+        <h3>[MVP+] Нашёл Тимейта😎[MVP++ ]PLS_BRO_ALT_F4</h3>
+        <iframe src="https://www.youtube.com/embed/XTQIGdmwitc?si=Xkkif7VM7WK1vRmz" frameborder="0" allowfullscreen></iframe>
     </div>
     <h2>Рекомендую к просмотру</h2>
     <div class="video">
@@ -111,6 +111,9 @@
 
 <footer>
     <p>&copy; 2024 <a href="https://youtube.com/@itz_molokomain" target="_blank" style="color: white;">Канал Itz_Moloko</a> — Все права защищены</p>
+    <p>По вопросам, рекламе и тд писать сюда: <a href="tg://resolve?domain=IlDen09" style="color: white;">IlDen09</a></p>
+    <p>Номер для донатов: <strong>2202 2023 2564 6135</strong></p>
+    <button onclick="copyCode()" style="margin-top: 10px;">Скопировать</button>
 </footer>
 
 </body>
