@@ -6,7 +6,6 @@
     <title>Itz_Moloko - Официальный сайт YouTube канала</title>
     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
 
-    <!-- Мета-теги для SEO -->
     <meta name="description" content="Добро пожаловать на официальный сайт канала Itz_Moloko! Здесь вы найдете последние видео, новости и ссылки на другие наши ресурсы.">
     <meta name="keywords" content="Itz_Moloko, Рухайпиксель,RuHypixel,итз_молоко,канал Itz_Moloko на YouTube,Minecraft дуэли,лучшие видео Itz_Moloko,новые видео Itz_Moloko,Minecraft,игровой канал Itz_Moloko,Itz_Moloko Telegram">
     <meta name="robots" content="index, follow">
@@ -34,9 +33,15 @@
             background: transparent;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         h1 {
             font-size: 2.5em;
@@ -62,24 +67,110 @@
         a:hover {
             text-decoration: underline;
         }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
-            }
-            .video iframe {
-                height: 200px;
-            }
+        button {
+            margin-top: 10px;
+            background-color: rgba(255, 0, 0, 0.8);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .poll {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .poll h2 {
+            margin: 0 0 10px;
+        }
+        .poll input {
+            margin-right: 10px;
+        }
+        .results {
+            margin-top: 20px;
         }
     </style>
     <script>
+        let votes = {
+            "True Sigma": 0,
+            "[MVP+] Нашёл Тимейта": 0,
+            "[MVP+] Itz_Moloko кидайте дуэли": 0
+        };
+        let totalVotes = 0;
+
+        function loadVotes() {
+            const savedVotes = JSON.parse(localStorage.getItem('votes'));
+            const savedTotalVotes = localStorage.getItem('totalVotes');
+            if (savedVotes) {
+                votes = savedVotes;
+            }
+            if (savedTotalVotes) {
+                totalVotes = parseInt(savedTotalVotes, 10);
+            }
+        }
+
+        function saveVotes() {
+            localStorage.setItem('votes', JSON.stringify(votes));
+            localStorage.setItem('totalVotes', totalVotes);
+        }
+
         function copyCode() {
             const code = "2202 2023 2564 6135"; // Код для копирования с пробелами
-            navigator.clipboard.writeText(code).then(() => {
-                alert("Код скопирован: " + code);
-            }).catch(err => {
-                console.error("Ошибка при копировании: ", err);
-            });
+            if (confirm("Вы уверены, что хотите скопировать код?")) {
+                navigator.clipboard.writeText(code).then(() => {
+                    alert("Код скопирован: " + code);
+                }).catch(err => {
+                    console.error("Ошибка при копировании: ", err);
+                });
+            }
         }
+
+        function submitPoll() {
+            const options = document.querySelectorAll('input[name="poll-option"]');
+            let selectedOption = "";
+            options.forEach(option => {
+                if (option.checked) {
+                    selectedOption = option.value;
+                }
+            });
+
+            if (selectedOption) {
+                if (localStorage.getItem('hasVoted')) {
+                    alert("Вы уже проголосовали!");
+                } else {
+                    votes[selectedOption]++;
+                    totalVotes++;
+                    localStorage.setItem('hasVoted', 'true');
+                    saveVotes();
+                    alert("Ваш голос принят! Теперь вы можете узнать результаты.");
+                }
+            } else {
+                alert("Пожалуйста, выберите вариант ответа.");
+            }
+        }
+
+        function showResults() {
+            if (!localStorage.getItem('hasVoted')) {
+                alert("Сначала проголосуйте, чтобы увидеть результаты.");
+                return;
+            }
+            const resultsContainer = document.getElementById("results");
+            resultsContainer.innerHTML = "<h2>Результаты опроса:</h2>";
+            for (const option in votes) {
+                const percentage = totalVotes ? ((votes[option] / totalVotes) * 100).toFixed(2) : 0;
+                resultsContainer.innerHTML += `<p>${option}: ${percentage}% (${votes[option]} голосов)</p>`;
+            }
+        }
+
+        window.onload = function() {
+            loadVotes();
+        };
     </script>
 </head>
 <body>
@@ -108,14 +199,24 @@
         <h3>[MVP+] Itz_Moloko кидайте дуэли на РуХайпикселе</h3>
         <iframe src="https://www.youtube.com/embed/v8rgNzHoGdw?si=FJE1Ezu3V9TDFXEm" frameborder="0" allowfullscreen></iframe>
     </div>
+    
+    <!-- Опрос -->
+    <div class="poll">
+        <h2>Какое видео вам больше всего понравилось?</h2>
+        <label><input type="radio" name="poll-option" value="True Sigma"> True Sigma</label><br>
+        <label><input type="radio" name="poll-option" value="[MVP+] Нашёл Тимейта"> [MVP+] Нашёл Тимейта</label><br>
+        <label><input type="radio" name="poll-option" value="[MVP+] Itz_Moloko кидайте дуэли"> [MVP+] Itz_Moloko кидайте дуэли</label><br>
+        <button onclick="submitPoll()">Отправить голос</button>
+        <button onclick="showResults()">Узнать результаты</button>
+    </div>
+
+    <!-- Результаты опроса -->
+    <div class="results" id="results"></div>
 </div>
+
 <footer>
-    <p>&copy; 2024 <a href="https://youtube.com/@itz_molokomain" target="_blank" style="color: white;">Канал Itz_Moloko</a> — Все права защищены</p>
-    <p>По вопросам, рекламе и тд писать сюда: <a href=" https://t.me/IlDen09" style="color: white;">IlDen09</a></p>
-    <p>Номер для донатов: <strong>2202 2023 2564 6135</strong></p>
-    <button onclick="copyCode()" style="margin-top: 10px;">Скопировать</button>
+    <footer>
+    <p>&copy; 2023 Itz_Moloko</p>
+    <p>Код: 2202 2023 2564 6135</p>
+    <button onclick="copyCode()">Скопировать код</button>
 </footer>
-
-</body>
-</html>
-
