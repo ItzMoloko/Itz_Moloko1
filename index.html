@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itz_Moloko - Официальный сайт YouTube канала</title>
     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
-
+    
     <meta name="description" content="Добро пожаловать на официальный сайт канала Itz_Moloko! Здесь вы найдете последние видео, новости и ссылки на другие наши ресурсы.">
     <meta name="keywords" content="Itz_Moloko, Рухайпиксель,RuHypixel,итз_молоко,канал Itz_Moloko на YouTube,Minecraft дуэли,лучшие видео Itz_Moloko,новые видео Itz_Moloko,Minecraft,игровой канал Itz_Moloko,Itz_Moloko Telegram">
     <meta name="robots" content="index, follow">
-
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +21,7 @@
             color: white;
         }
         header {
-            background-color: rgba(255, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 10px 0;
             text-align: center;
@@ -119,18 +119,6 @@
             localStorage.setItem('votes', JSON.stringify(votes));
             localStorage.setItem('totalVotes', totalVotes);
         }
-
-        function copyCode() {
-            const code = "2202 2023 2564 6135"; // Код для копирования с пробелами
-            if (confirm("Вы уверены, что хотите скопировать код?")) {
-                navigator.clipboard.writeText(code).then(() => {
-                    alert("Код скопирован: " + code);
-                }).catch(err => {
-                    console.error("Ошибка при копировании: ", err);
-                });
-            }
-        }
-
         function submitPoll() {
             const options = document.querySelectorAll('input[name="poll-option"]');
             let selectedOption = "";
@@ -171,6 +159,17 @@
         window.onload = function() {
             loadVotes();
         };
+
+        function copyCode() {
+            const code = "2202 2023 2564 6135"; // Код для копирования
+            if (confirm("Вы уверены, что хотите скопировать код?")) {
+                navigator.clipboard.writeText(code).then(() => {
+                    alert("Код скопирован: " + code);
+                }).catch(err => {
+                    console.error("Ошибка при копировании: ", err);
+                });
+            }
+        }
     </script>
 </head>
 <body>
@@ -181,6 +180,7 @@
     <p><strong><a href="https://t.me/Itz_Moloko" target="_blank">Телеграмм Канал</a></strong></p>
     <p><strong><a href="https://revage.net/" target="_blank">Revage.net</a></strong></p>
     <p><strong><a href="./about.html" target="_blank">Больше информации</a></strong></p>
+    <p><strong><a href="./sob.html" target = "_blank">События</a></strong></p>
 </header>
 
 <div class="container">
@@ -215,8 +215,11 @@
 </div>
 
 <footer>
-    <footer>
     <p>&copy; 2023 Itz_Moloko</p>
     <p>Номер для донатов: 2202 2023 2564 6135</p>
-    <button onclick="copyCode()">Скопировать код</button>
+    <button onclick="copyCode()">Копировать</button>
+    <p>По вопросам писать : <a href=" https://t.me/MisarMpt" style="color: white;">IlDen09</a></p>
 </footer>
+
+</body>
+</html>
