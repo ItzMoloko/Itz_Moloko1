@@ -1,186 +1,188 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itz_Moloko - Официальный сайт YouTube канала</title>
     <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
-    
+
     <meta name="description" content="Добро пожаловать на официальный сайт канала Itz_Moloko! Здесь вы найдете последние видео, новости и ссылки на другие наши ресурсы.">
-    <meta name="keywords" content="Itz_Moloko, Рухайпиксель,RuHypixel,итз_молоко,канал Itz_Moloko на YouTube,Minecraft дуэли,лучшие видео Itz_Moloko,новые видео Itz_Moloko,Minecraft,игровой канал Itz_Moloko,Itz_Moloko Telegram">
+    <meta name="keywords" content="Itz_Moloko, Рухайпиксель, RuHypixel, итз_молоко, канал Itz_Moloko на YouTube, Minecraft дуэли, лучшие видео Itz_Moloko, новые видео Itz_Molоко, Minecraft, игровой канал Itz_Moloko, Itz_Moloko Telegram">
     <meta name="robots" content="index, follow">
-    
+
     <style>
+        /* Основные стили */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('bg.jpg');
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('bg.jpg');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 10px 0;
+        }
+
         header {
+            padding: 40px 20px;
+            text-align: center;
             background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 0;
-            text-align: center;
+            border-bottom: 3px solid #ff5733;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: transparent;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        h1 {
-            font-size: 2.5em;
-        }
-        .video {
-            margin: 20px 0;
-            width: 100%;
-        }
-        .video iframe {
-            width: 100%;
-            height: auto;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: white;
-        }
-        a {
-            color: inherit;
+
+        header a {
+            color: #ff5733;
             text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
         }
-        a:hover {
+
+        header a:hover {
             text-decoration: underline;
         }
-        button {
-            margin-top: 10px;
-            background-color: rgba(255, 0, 0, 0.8);
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: transform 0.2s ease;
-        }
-        button:hover {
-            transform: scale(1.05);
-        }
-        .poll {
-            margin: 20px 0;
+
+        /* Основной контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-        .poll h2 {
-            margin: 0 0 10px;
+
+        /* Видео */
+        .video {
+            margin: 20px 0;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
-        .poll input {
+
+        .video:hover {
+            transform: scale(1.05);
+        }
+
+        .video iframe {
+            width: 100%;
+            height: 100%;
+            max-height: 500px;
+        }
+
+        .video h3 {
+            padding: 15px;
+            font-size: 1.5rem;
+            background-color: #222;
+            text-align: center;
+        }
+
+        /* Кнопки */
+        button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #ff5733;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #ff2e00;
+            transform: scale(1.05);
+        }
+
+        /* Опрос */
+        .poll {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+        }
+
+        .poll label {
+            font-size: 1.2rem;
             margin-right: 10px;
+            cursor: pointer;
+            display: block;
         }
+
+        .poll input {
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
+        /* Результаты опроса */
         .results {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
             margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        /* Подвал */
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            background-color: #222;
+            color: white;
+            border-top: 3px solid #ff5733;
+        }
+
+        footer a {
+            color: #ff5733;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer button {
+            margin-top: 10px;
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .video iframe {
+                height: 300px;
+            }
+
+            .poll label {
+                font-size: 1rem;
+            }
         }
     </style>
-    <script>
-        let votes = {
-            "True Sigma": 0,
-            "[MVP+] Нашёл Тимейта": 0,
-            "[MVP+] Itz_Moloko кидайте дуэли": 0
-        };
-        let totalVotes = 0;
-
-        function loadVotes() {
-            const savedVotes = JSON.parse(localStorage.getItem('votes'));
-            const savedTotalVotes = localStorage.getItem('totalVotes');
-            if (savedVotes) {
-                votes = savedVotes;
-            }
-            if (savedTotalVotes) {
-                totalVotes = parseInt(savedTotalVotes, 10);
-            }
-        }
-
-        function saveVotes() {
-            localStorage.setItem('votes', JSON.stringify(votes));
-            localStorage.setItem('totalVotes', totalVotes);
-        }
-        function submitPoll() {
-            const options = document.querySelectorAll('input[name="poll-option"]');
-            let selectedOption = "";
-            options.forEach(option => {
-                if (option.checked) {
-                    selectedOption = option.value;
-                }
-            });
-
-            if (selectedOption) {
-                if (localStorage.getItem('hasVoted')) {
-                    alert("Вы уже проголосовали!");
-                } else {
-                    votes[selectedOption]++;
-                    totalVotes++;
-                    localStorage.setItem('hasVoted', 'true');
-                    saveVotes();
-                    alert("Ваш голос принят! Теперь вы можете узнать результаты.");
-                }
-            } else {
-                alert("Пожалуйста, выберите вариант ответа.");
-            }
-        }
-
-        function showResults() {
-            if (!localStorage.getItem('hasVoted')) {
-                alert("Сначала проголосуйте, чтобы увидеть результаты.");
-                return;
-            }
-            const resultsContainer = document.getElementById("results");
-            resultsContainer.innerHTML = "<h2>Результаты опроса:</h2>";
-            for (const option in votes) {
-                const percentage = totalVotes ? ((votes[option] / totalVotes) * 100).toFixed(2) : 0;
-                resultsContainer.innerHTML += `<p>${option}: ${percentage}% (${votes[option]} голосов)</p>`;
-            }
-        }
-
-        window.onload = function() {
-            loadVotes();
-        };
-
-        function copyCode() {
-            const code = "2202 2023 2564 6135"; // Код для копирования
-            if (confirm("Вы уверены, что хотите скопировать код?")) {
-                navigator.clipboard.writeText(code).then(() => {
-                    alert("Код скопирован: " + code);
-                }).catch(err => {
-                    console.error("Ошибка при копировании: ", err);
-                });
-            }
-        }
-    </script>
 </head>
+
 <body>
 
 <header>
     <h1>QQ all, это официальный сайт Itz_Moloko</h1>
-    <p><strong><a href="https://youtube.com/@itz_molokomain?si=eBQteTiXL--j6dEM" target="_blank" style="color: white;">Перейти на канал</a></strong></p>
-    <p><strong><a href="https://t.me/Itz_Moloko" target="_blank">Телеграмм Канал</a></strong></p>
-    <p><strong><a href="https://revage.net/" target="_blank">Revage.net</a></strong></p>
-    <p><strong><a href="./about.html" target="_blank">Больше информации</a></strong></p>
-    <p><strong><a href="./sob.html" target = "_blank">События</a></strong></p>
+    <p><a href="https://youtube.com/@itz_molokomain?si=eBQteTiXL--j6dEM" target="_blank">Перейти на канал YouTube</a></p>
+    <p><a href="https://t.me/Itz_Moloko" target="_blank">Телеграмм Канал</a></p>
+    <p><a href="https://revage.net/" target="_blank">Revage.net</a></p>
+    <p><a href="./about.html" target="_blank">Больше информации</a></p>
+    <p><a href="./sob.html" target="_blank">События</a></p>
 </header>
 
 <div class="container">
@@ -189,25 +191,29 @@
         <h3>True Sigma</h3>
         <iframe src="https://www.youtube.com/embed/sQYbQcJL1m8?si=LEegSdYEG2jrP5-1" frameborder="0" allowfullscreen></iframe>
     </div>
+
     <h2>Лучшее видео</h2>
     <div class="video">
         <h3>[MVP+] Нашёл Тимейта😎[MVP++ ]PLS_BRO_ALT_F4</h3>
         <iframe src="https://www.youtube.com/embed/XTQIGdmwitc?si=Xkkif7VM7WK1vRmz" frameborder="0" allowfullscreen></iframe>
     </div>
+
     <h2>Рекомендую к просмотру</h2>
     <div class="video">
         <h3>[MVP+] Itz_Moloko кидайте дуэли на РуХайпикселе</h3>
         <iframe src="https://www.youtube.com/embed/v8rgNzHoGdw?si=FJE1Ezu3V9TDFXEm" frameborder="0" allowfullscreen></iframe>
     </div>
-    
+
     <!-- Опрос -->
     <div class="poll">
         <h2>Какое видео вам больше всего понравилось?</h2>
-        <label><input type="radio" name="poll-option" value="True Sigma"> True Sigma</label><br>
-        <label><input type="radio" name="poll-option" value="[MVP+] Нашёл Тимейта"> [MVP+] Нашёл Тимейта</label><br>
-        <label><input type="radio" name="poll-option" value="[MVP+] Itz_Moloko кидайте дуэли"> [MVP+] Itz_Moloko кидайте дуэли</label><br>
-        <button onclick="submitPoll()">Отправить голос</button>
-        <button onclick="showResults()">Узнать результаты</button>
+        <label><input type="radio" name="poll-option" value="True Sigma"> True Sigma</label>
+        <label><input type="radio" name="poll-option" value="[MVP+] Нашёл Тимейта"> [MVP+] Нашёл Тимейта</label>
+        <label><input type="radio" name="poll-option" value="[MVP+] Itz_Moloko кидайте дуэли"> [MVP+] Itz_Moloko кидайте дуэли</label>
+        <div>
+            <button onclick="submitPoll()">Отправить голос</button>
+            <button onclick="showResults()">Узнать результаты</button>
+        </div>
     </div>
 
     <!-- Результаты опроса -->
@@ -218,8 +224,87 @@
     <p>&copy; 2023 Itz_Moloko</p>
     <p>Номер для донатов: 2202 2023 2564 6135</p>
     <button onclick="copyCode()">Копировать</button>
-    <p>По вопросам писать : <a href=" https://t.me/MisarMpt" style="color: white;">IlDen09</a></p>
+    <p>По вопросам писать: <a href="https://t.me/MisarMpt" target="_blank">IlDen09</a></p>
 </footer>
 
+<script>
+    let votes = {
+        "True Sigma": 0,
+        "[MVP+] Нашёл Тимейта": 0,
+        "[MVP+] Itz_Moloko кидайте дуэли": 0
+    };
+    let totalVotes = 0;
+
+    function loadVotes() {
+        const savedVotes = JSON.parse(localStorage.getItem('votes'));
+        const savedTotalVotes = localStorage.getItem('totalVotes');
+        if (savedVotes) {
+            votes = savedVotes;
+        }
+        if (savedTotalVotes) {
+            totalVotes = parseInt(savedTotalVotes, 10);
+        }
+    }
+
+    function saveVotes() {
+        localStorage.setItem('votes', JSON.stringify(votes));
+        localStorage.setItem('totalVotes', totalVotes);
+    }
+
+    function submitPoll() {
+        const options = document.querySelectorAll('input[name="poll-option"]');
+        let selectedOption = "";
+        options.forEach(option => {
+            if (option.checked) {
+                selectedOption = option.value;
+            }
+        });
+
+        if (selectedOption) {
+            if (localStorage.getItem('hasVoted')) {
+                alert("Вы уже проголосовали!");
+            } else {
+                votes[selectedOption]++;
+                totalVotes++;
+                localStorage.setItem('hasVoted', 'true');
+                saveVotes();
+                alert("Ваш голос принят! Теперь вы можете узнать результаты.");
+            }
+        } else {
+            alert("Пожалуйста, выберите вариант ответа.");
+        }
+    }
+
+    function showResults() {
+        if (!localStorage.getItem('hasVoted')) {
+            alert("Сначала проголосуйте, чтобы увидеть результаты.");
+            return;
+        }
+        const resultsContainer = document.getElementById("results");
+        resultsContainer.style.display = "block";
+        resultsContainer.innerHTML = "<h2>Результаты опроса:</h2>";
+        for (const option in votes) {
+            const percentage = totalVotes ? ((votes[option] / totalVotes) * 100).toFixed(2) : 0;
+            resultsContainer.innerHTML += `<p>${option}: ${percentage}% (${votes[option]} голосов)</p>`;
+        }
+    }
+
+    window.onload = function () {
+        loadVotes();
+    };
+
+    function copyCode() {
+        const code = "2202 2023 2564 6135";
+        if (confirm("Вы уверены, что хотите скопировать код?")) {
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Код скопирован: " + code);
+            }).catch(err => {
+                console.error("Ошибка при копировании: ", err);
+            });
+        }
+    }
+</script>
+
 </body>
+
 </html>
